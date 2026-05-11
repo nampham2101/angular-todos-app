@@ -1,0 +1,19 @@
+<h1 class="text-4xl font-bold tracking-tight text-gray-900">Todos</h1>
+<ul class="flex flex-col gap-5 pl-5">
+  <li class="border-b list-disc" *ngFor="let todo of todos$ | async; trackBy: trackByFn">
+    <app-todo-list-item
+      [todo]="todo"
+      (onTodoChanged)="updateTodo($event, todo.id)"
+      (markAsDone)="markAsDone(todo.id)"></app-todo-list-item>
+  </li>
+</ul>
+<hr class="mt-5 mb-5">
+<h1 class="text-4xl font-bold tracking-tight text-gray-900">Completed</h1>
+<ul class="flex flex-col gap-5 pl-5">
+  <li class="border-b list-disc" *ngFor="let todo of completedTodos$ | async; trackBy: trackByFn">
+    <app-todo-list-item
+      [todo]="todo"
+      (onTodoChanged)="updateTodo($event, todo.id)"
+      (markAsDone)="markAsDone(todo.id)"></app-todo-list-item>
+  </li>
+</ul>

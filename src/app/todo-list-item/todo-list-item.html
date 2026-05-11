@@ -1,0 +1,27 @@
+<div class="flex gap-2">
+
+  @if (!editMode()) {
+    <div
+      [class.line-through]="todo().completed"
+      class="grow p-2">{{todo().text}}</div>
+
+    @if (!todo!().completed) {
+
+      <button
+        (click)="editModeOn()"
+        class="border rounded-md p-2 ps-4 pe-4 bg-blue-400 text-white">Edit</button>
+
+      <button
+        (click)="markAsDone.emit()"
+        class="border rounded-md p-2 ps-4 pe-4 bg-blue-400 text-white">Done</button>
+    }
+  } @else {
+    <input
+           [value]="todo().text"
+           (input)="onChanged($event)"
+           class="grow border rounded-md p-2">
+    <button
+      (click)="saveTodo()"
+      class="border rounded-md p-2 ps-4 pe-4 bg-blue-400 text-white">Save</button>
+  }
+</div>

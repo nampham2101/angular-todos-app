@@ -1,0 +1,11 @@
+<div class="flex gap-3">
+  <input [placeholder]="placeholder()"
+         [value]="newTodo()"
+         (input)="onChanged($event)"
+         class="border rounded-md p-2">
+  <button
+    (click)="save()"
+    class="border rounded-md p-2 ps-4 pe-4 bg-blue-400 text-white">
+    {{ buttonText() }}
+  </button>
+</div>
